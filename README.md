@@ -2,6 +2,8 @@
 
 A modern and interactive personal portfolio website built using **HTML, CSS, and JavaScript**. The portfolio showcases my skills, projects, resume, certifications, and contact information with a clean and responsive design.
 
+Demo : https://srinivasan282.github.io/new-portfolio/
+
 ## 🚀 Features
 
 * Responsive Portfolio Design
