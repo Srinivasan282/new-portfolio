@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srinivasan Madeshwaran | Cinematic Spatial Portfolio</title>
+  <meta name="description" content="Immersive 3D Portfolio of Sathish Kumar - Graphic Designer, Video Editor, and Web Developer.">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="dark">
+
+  <!-- GRAIN OVERLAY -->
+  <div id="grain"></div>
+
+  <!-- VIGNETTE -->
+  <div id="vignette"></div>
+
+  <!-- AMBIENT GLOW -->
+  <div id="bg-glow"></div>
+
+  <!-- INK TRAIL CURSOR -->
+  <canvas id="trailCv"></canvas>
+
+  <!-- THREE.JS CANVAS -->
+  <canvas id="cv"></canvas>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="ld-logo">SM<span>.</span></div>
+      <div id="ldTxt">Initializing Systems...</div>
+      <div class="ld-bar-wrap">
+        <div class="ld-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== NAVIGATION =================== -->
+  <nav id="nav">
+    <div class="nav-left">
+      <div class="logo mag-btn" id="navLogo" data-go="0">SM<span>.</span></div>
+    </div>
+    <div class="nav-center">
+      <a data-go="0" class="nav-link active">Home</a>
+      <a data-go="1" class="nav-link">Design</a>
+      <a data-go="2" class="nav-link">Video</a>
+      <a data-go="3" class="nav-link">Code</a>
+      <a data-go="4" class="nav-link">Education</a>
+      <a data-go="5" class="nav-link">Work</a>
+      <a data-go="6" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="hire-btn mag-btn" data-go="6">Hire Me</button>
+      <a class="resume-download-btn mag-btn" href="#" download="Sathish_Kumar_Resume.pdf" style="margin-left: 10px;">Resume 🗎</a>
+      <button id="themeBtn" class="theme-toggle mag-btn">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- =================== UI ELEMENTS =================== -->
+  <!-- PROGRESS BAR -->
+  <div id="prog-bar">
+    <div id="prog-fill"></div>
+  </div>
+
+  <!-- SIDE DOTS -->
+  <div id="dots">
+    <button class="d active" data-go="0"></button>
+    <button class="d" data-go="1"></button>
+    <button class="d" data-go="2"></button>
+    <button class="d" data-go="3"></button>
+    <button class="d" data-go="4"></button>
+    <button class="d" data-go="5"></button>
+    <button class="d" data-go="6"></button>
+  </div>
+
+  <!-- SECTION COUNTER -->
+  <div id="sec-num"><span id="sn">01</span><span class="sn-slash"> / </span>07</div>
+
+  <!-- =================== SLIDES =================== -->
+  <div id="stage">
+
+    <!-- 0: HOME -->
+    <div class="slide active" id="s0">
+      <div class="content-col">
+        <div class="chip">✦ Open to Creative Work</div>
+
+        <!-- Name (No glitch) -->
+        <h1 class="h-name">
+          <span class="name-line1">I am</span><br />
+          <span class="grad">
+            <span class="fname">Srinivasan</span>
+            <span class="lname">Madeshwaran</span>
+          </span>
+        </h1>
+
+        <!-- Morphing role ticker -->
+        <div class="ticker-box">
+          <div class="ticker-track" id="tickerTrack">
+            <span class="tick-item active">Graphic Designer</span>
+            <span class="tick-item">Video Editor</span>
+            <span class="tick-item">Web Developer</span>
+            <span class="tick-item">Creative Director</span>
+          </div>
+        </div>
+
+        <p class="h-desc">I believe in simple ideas with big impact.
+          Learning, creating, and evolving every day.
+          The journey has just begun.</p>
+
+        <div class="btn-row">
+          <button class="btn-p mag-btn" data-go="5">
+            <span>View My Work</span>
+            <svg class="btn-arrow" viewBox="0 0 24 24">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+          <button class="btn-g mag-btn" data-go="6"><span>Let's Talk</span></button>
+          <a class="resume-download-btn mag-btn" href="#" download="Sathish_Kumar_Resume.pdf">Resume 🗎</a>
+        </div>
+
+        <!-- Stats row -->
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-num-wrap"><span class="stat-num" data-count="25">0</span><span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num-wrap"><span class="stat-num" data-count="2">0</span><span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Years Exp.</span>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num-wrap"><span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Clients</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1: DESIGN -->
+    <div class="slide" id="s1">
+      <div class="content-col">
+        <div class="zone-tag">
+          <span class="zt-num">02</span>
+          Graphic Design
+        </div>
+        <h2 class="sk-h2 split-heading">
+          <span class="word-wrap"><span class="word">Graphic</span></span><br />
+          <span class="word-wrap"><span class="word accent-text">Design</span></span>
+        </h2>
+        <p class="sk-p">Brand identities that breathe. Posters that stop the scroll. Campaigns that convert audiences
+          into communities. Every pixel, intentional.</p>
+
+        <!-- Animated Blending Shapes -->
+        <div class="gd-shapes-anim">
+          <div class="gd-shape gd-c"></div>
+          <div class="gd-shape gd-m"></div>
+          <div class="gd-shape gd-y"></div>
+        </div>
+
+        <ul class="sk-list">
+          <li><span class="li-icon">◈</span>Brand Identity Systems</li>
+          <li><span class="li-icon">◈</span>Poster &amp; Print Design</li>
+          <li><span class="li-icon">◈</span>Social Media Graphics</li>
+          <li><span class="li-icon">◈</span>Illustration &amp; Icons</li>
+        </ul>
+        <div class="tools">
+          <span class="tool-tag">Photoshop</span>
+          <span class="tool-tag">Illustrator</span>
+          <span class="tool-tag">Figma</span>
+          <span class="tool-tag">InDesign</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: VIDEO -->
+    <div class="slide" id="s2">
+      <div class="content-col">
+        <div class="zone-tag">
+          <span class="zt-num">03</span>
+          Video Editing
+        </div>
+        <h2 class="sk-h2 split-heading">
+          <span class="word-wrap"><span class="word">Cinematic</span></span><br />
+          <span class="word-wrap"><span class="word accent-text">Editing</span></span>
+        </h2>
+        <p class="sk-p">Every cut is intentional. Every frame tells a story. Color grades, motion graphics, and sound
+          design that make audiences feel everything.</p>
+
+        <!-- Video Editing Timeline Animation -->
+        <div class="ve-timeline">
+          <div class="ve-playhead"></div>
+          <div class="ve-time-ruler"></div>
+          <div class="ve-track">
+            <div class="ve-clip" style="width: 30%; background: #f87171; left: 0%;"></div>
+            <div class="ve-clip" style="width: 40%; background: #c084fc; left: 40%;"></div>
+          </div>
+          <div class="ve-track">
+            <div class="ve-clip" style="width: 50%; background: #34d399; left: 20%;"></div>
+          </div>
+        </div>
+
+        <ul class="sk-list">
+          <li><span class="li-icon">◈</span>Short Films &amp; Docs</li>
+          <li><span class="li-icon">◈</span>Reels, Shorts &amp; YouTube</li>
+          <li><span class="li-icon">◈</span>Motion Graphics &amp; Titles</li>
+          
+        </ul>
+        <div class="tools">
+          <span class="tool-tag">Premiere Pro</span>
+          <span class="tool-tag">After Effects</span>
+          <span class="tool-tag">DaVinci Resolve</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: WEB -->
+    <div class="slide" id="s3">
+      <div class="code-bg-chars" id="codeBgChars"></div>
+      <div class="content-col">
+        <div class="zone-tag">
+          <span class="zt-num">04</span>
+          Web Development
+        </div>
+        <h2 class="sk-h2 split-heading">
+          <span class="word-wrap"><span class="word">Web</span></span><br />
+          <span class="word-wrap"><span class="word accent-text">Development</span></span>
+        </h2>
+        <p class="sk-p">Performance-first, pixel-perfect digital experiences with real 3D depth. Clean code meets
+          beautiful design.</p>
+
+        <!-- Code terminal snippet -->
+        <div class="code-snip">
+          <div class="cs-bar"><span class="cs-dot r"></span><span class="cs-dot y"></span><span class="cs-dot g"></span>
+          </div>
+          <div class="cs-line"><span class="cs-kw">const</span> <span class="cs-var">creative</span> = <span
+              class="cs-str">'limitless'</span>;</div>
+          <div class="cs-line"><span class="cs-kw">function</span> <span class="cs-fn">build</span>(<span
+              class="cs-var">idea</span>) {</div>
+          <div class="cs-line cs-indent"><span class="cs-kw">return</span> <span class="cs-var">idea</span>.<span
+              class="cs-fn">transform</span>() + <span class="cs-str">'✨'</span>;</div>
+          <div class="cs-line">} <span class="cs-cursor">|</span></div>
+
+          <button id="runCodeBtn" class="mag-btn"
+            style="margin-top: 15px; background: var(--accent); color: #000; border: none; padding: 6px 15px; border-radius: 4px; font-size: 11px; font-weight: bold; cursor: pointer; text-transform: uppercase;">Run
+            Output</button>
+          <div id="codeOutput"
+            style="display: none; margin-top: 10px; color: #fff; background: rgba(0,0,0,0.8); padding: 10px; border-radius: 4px; font-family: monospace; border: 1px solid var(--border);">
+            > Output: <span style="color: var(--accent);">limitless✨</span>
+          </div>
+        </div>
+
+        <ul class="sk-list">
+          
+          <li><span class="li-icon">◈</span>React &amp; Next.js Apps</li>
+          <li><span class="li-icon">◈</span>Full-Stack Development</li>
+          <li><span class="li-icon">◈</span>UI/UX &amp; Animation</li>
+        </ul>
+        <div class="tools">
+          <span class="tool-tag">React</span>
+          <span class="tool-tag">Three.js</span>
+          <span class="tool-tag">Node.js</span>
+          <span class="tool-tag">Python</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: EDUCATION -->
+    <div class="slide" id="s4">
+      <div class="content-col">
+        <div class="zone-tag">
+          <span class="zt-num">05</span>
+          Education
+        </div>
+        <h2 class="sk-h2 split-heading">
+          <span class="word-wrap"><span class="word">Academic</span></span><br />
+          <span class="word-wrap"><span class="word accent-text">Journey</span></span>
+        </h2>
+        
+        <div class="edu-timeline">
+          <!-- COLLEGE -->
+          <div class="edu-item">
+            <div class="edu-year">2023 — 2026</div>
+            <div class="edu-details">
+              <h3>Sengunthar Arts and Science College / Periyar University</h3>
+              <p><strong>Bachelor of Computer  Science (B.Sc.CS)</strong><br />
+                Explored programming, web technologies, and computer science fundamentals.
+                Gained practical experience by building real-world academic projects.</p>
+            </div>
+          </div>
+
+          <!-- HIGHER SECONDARY -->
+          <div class="edu-item">
+            <div class="edu-year">2022 — 2023</div>
+            <div class="edu-details">
+              <h3>Government Boys Hr. Sec. School</h3>
+              <p>Completed Higher Secondary with a focus on Agriculture.
+                Built a solid foundation in farming practices and natural resource management.</p>
+            </div>
+          </div>
+
+          <!-- SCHOOLING -->
+          <div class="edu-item">
+            <div class="edu-year">2020 — 2021</div>
+            <div class="edu-details">
+              <h3>Government Boys Hr. Sec. School</h3>
+              <p>Completed Secondary Schooling (10th Grade). Further developed interest in computers and creative technology.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 5: PROJECTS-->
+    <div class="slide" id="s5">
+      <div class="content-col full-width">
+        <div class="zone-tag">
+          <span class="zt-num">06</span>
+          Selected Work
+        </div>
+        <h2 class="proj-h">Projects <span class="grad">Showcase</span></h2>
+
+        <!-- Re-designed project list -->
+        <div class="proj-list">
+
+          <div class="proj-row mag-btn">
+            <div class="proj-meta">
+              <span class="pj-num">01</span>
+              <span class="pj-cat">Graphic Design</span>
+            </div>
+            <div class="proj-title">Graphic Design</div>
+            <div class="proj-desc">Sleek brand identities, custom typography, and layout designs.</div>
+            <div class="proj-arrow"></div>
+          </div>
+
+          <div class="proj-row mag-btn">
+            <div class="proj-meta"> 
+              <span class="pj-num">02</span>
+              <span class="pj-cat">Cinematic Editing</span>
+            </div>
+            <div class="proj-title">Cinematic Editing</div>
+            <div class="proj-desc">Sleek visual cuts, precision grading, and high-fidelity sound design for cinematic storytelling.</div>
+            <div class="proj-arrow"></div>
+          </div>
+
+          <div class="proj-row mag-btn">
+            <div class="proj-meta">
+              <span class="pj-num">03</span>
+              <span class="pj-cat">Web Develop</span>
+            </div>
+            <div class="proj-title">Web Develop</div>
+            <div class="proj-desc">Custom web platforms, interactive 3D systems, database tools, and AI computer vision applications.</div>
+            <div class="proj-arrow"></div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 6: CONTACT -->
+    <div class="slide" id="s6">
+      <div class="content-col">
+        <div class="zone-tag">
+          <span class="zt-num">07</span>
+          Get In Touch
+        </div>
+        <h2 class="contact-h">Let's Build<br /><span class="grad">Something Great</span></h2>
+
+        <div class="avail-badge">
+          <span class="avail-dot"></span>
+          Available for new projects
+        </div>
+
+        <form id="cForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="3282e8fb-b4db-4b13-9123-d76bbc1298ff">
+          <div class="f-group">
+            <input type="text" id="fName" placeholder=" " required />
+            <label for="fName">Your Name</label>
+          </div>
+          <div class="f-group">
+            <input type="email" id="fEmail" placeholder=" " required />
+            <label for="fEmail">Your Email</label>
+          </div>
+          <div class="f-group">
+            <textarea id="fMsg" rows="2" placeholder=" " required></textarea>
+            <label for="fMsg">Message</label>
+          </div>
+          <button type="submit" id="sendBtn" class="mag-btn">
+            <span id="sendTxt">Send Message ✦</span>
+          </button>
+        </form>
+
+        <div class="soc-row">
+          <a href="https://www.instagram.com/magic_smile_282?igsh=d20xeG95cGl1b2R3" class="soc-link mag-btn">IG</a>
+          <a href="https://www.linkedin.com/in/m-srinivasan2/" class="soc-link mag-btn" target="_blank">in</a>
+          <a href="https://github.com/Srinivasan282" class="soc-link mag-btn" target="_blank">GH</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /stage -->
+
+  <!-- =================== WORKSPACE OVERLAY =================== -->
+  <div id="workspace-overlay">
+    <div class="ws-header">
+      <button id="wsBackBtn" class="mag-btn">
+        <svg class="ws-back-arrow" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Portfolio</span>
+      </button>
+      <div class="ws-admin-controls">
+        <button id="wsAdminUnlockBtn" class="ws-admin-unlock-btn mag-btn">
+          <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" style="margin-right:4px;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>Unlock Creator Mode</span>
+        </button>
+        <button id="wsExitAdminBtn" class="ws-exit-admin-btn mag-btn" style="display:none;">Exit Admin Mode</button>
+      </div>
+    </div>
+    
+    <div class="ws-content">
+      <div class="ws-sidebar">
+        <div class="zone-tag">
+          <span class="zt-num" id="wsTopicNum">06</span>
+          <span id="wsTopicCategory">WORKSPACE</span>
+        </div>
+        <h2 class="ws-title" id="wsTopicTitle">Project Topic</h2>
+        <p class="ws-desc">Upload, view, and manage your custom projects in this thematic space. Changes are saved to local storage.</p>
+        
+        <!-- Visitor Mode View (Shown to standard clients) -->
+        <div id="wsVisitorView" class="ws-visitor-view">
+          <p class="ws-visitor-notice">Welcome to my creative workspace! You are currently viewing this showcase in <strong>Visitor Mode</strong>.</p>
+          <div class="ws-visitor-cta">
+            <p>Interested in collaborating or hiring me for your next project?</p>
+            <button class="ws-visitor-contact-btn mag-btn" onclick="closeWorkspace(); goTo(6);">Get In Touch ✦</button>
+          </div>
+          <div class="ws-visitor-hint">
+            <p>🔒 Double-click the logo <strong>SM.</strong> in the top left or press <code>Ctrl + Shift + A</code> to unlock project management.</p>
+          </div>
+        </div>
+
+        <!-- Creator Mode View (Upload Form - Hidden by default for visitors) -->
+        <form id="wsUploadForm" style="display:none;">
+          <div class="f-group-select">
+            <label for="wsMediaType">Media Type</label>
+            <select id="wsMediaType" class="ws-select">
+              <option value="image">Photo / Image</option>
+              <option value="video">Short Video Clip (MP4)</option>
+              <option value="link">Video Embed Link (YouTube/Vimeo)</option>
+            </select>
+          </div>
+
+          <div class="f-group-select" id="wsBrandSubCategoryGroup" style="display:none;">
+            <label for="wsBrandSubCategory">Design Category</label>
+            <select id="wsBrandSubCategory" class="ws-select">
+              <option value="posters">Posters</option>
+              <option value="brochure">Brochures</option>
+              <option value="logo">Logos</option>
+              <option value="invitation">Invitation</option>
+            </select>
+          </div>
+
+          <div class="f-group-select" id="wsFilmSubCategoryGroup" style="display:none;">
+            <label for="wsFilmSubCategory">Reel Category</label>
+            <select id="wsFilmSubCategory" class="ws-select">
+              <option value="productivity">Productivity Reels</option>
+              <option value="trending">Trending Audio Reels</option>
+            </select>
+          </div>
+
+          
+          <div class="f-group" id="wsLinkGroup" style="display:none;">
+            <input type="url" id="wsProjLink" placeholder=" " />
+            <label for="wsProjLink">YouTube or Vimeo Video Link</label>
+          </div>
+          
+          <div class="ws-upload-zone" id="wsDropZone">
+            <input type="file" id="wsFileElem" accept="image/*,video/mp4" multiple style="display:none" />
+            <div class="ws-upload-prompt" id="wsUploadPrompt">
+              <svg class="ws-upload-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              <p>Drag & drop file or <span class="ws-browse-link" style="color:var(--accent); text-decoration:underline; cursor:pointer;">browse</span></p>
+            </div>
+            <div class="ws-preview-container" id="wsPreviewWrap" style="display:none">
+              <div class="ws-preview-grid">
+                <img id="wsImagePreview" src="" alt="Image Preview" style="display:none;" />
+                <img id="wsImagePreview2" src="" alt="Image Preview 2" style="display:none;" />
+              </div>
+              <video id="wsVideoPreview" src="" autoplay loop muted playsinline style="display:none; width: 100%; height: 100%; object-fit: cover;"></video>
+              <button type="button" id="wsRemovePreviewBtn">×</button>
+            </div>
+          </div>
+
+          <button type="submit" id="wsSubmitBtn" class="mag-btn">
+            <span>Upload Project ✦</span>
+          </button>
+        </form>
+
+        <!-- Creator Mode Resume Management -->
+        <div id="wsResumeAdminSection" style="display:none; margin-top: 30px; padding-top: 20px; border-top: 1px dashed var(--border);">
+          <h4 style="font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--accent); margin-bottom:12px;">Resume Management</h4>
+          <div class="f-group-select" style="margin-bottom:15px;">
+            <label for="wsResumeFile">Upload New Resume (PDF)</label>
+            <input type="file" id="wsResumeFile" accept=".pdf,application/pdf" style="display:block; margin-top:8px; font-size:12px; color:var(--muted); cursor:pointer;" />
+          </div>
+          <p id="wsResumeStatus" style="font-size:11px; color:var(--muted); margin-top:8px;">No custom resume uploaded yet.</p>
+        </div>
+      </div>
+
+      <div class="ws-main">
+        <div class="ws-main-header">
+          <h3 class="ws-grid-title">Uploaded Projects</h3>
+          <div class="ws-filter-tabs" id="wsBrandFilterTabs" style="display:none;">
+            <button class="ws-filter-tab active" data-filter="all">All</button>
+            <button class="ws-filter-tab" data-filter="posters">Posters</button>
+            <button class="ws-filter-tab" data-filter="brochure">Brochures</button>
+            <button class="ws-filter-tab" data-filter="logo">Logos</button>
+            <button class="ws-filter-tab" data-filter="invitation">Invitations</button>
+          </div>
+          <div class="ws-filter-tabs" id="wsFilmFilterTabs" style="display:none;">
+            <button class="ws-filter-tab active" data-filter="all">All</button>
+            <button class="ws-filter-tab" data-filter="productivity">Productivity Reels</button>
+            <button class="ws-filter-tab" data-filter="trending">Trending Audio Reels</button>
+          </div>
+          <button id="wsResetBtn" class="ws-reset-btn mag-btn" title="Reset to default showcase projects" style="display:none;">Reset Showcase</button>
+        </div>
+        <div class="ws-grid" id="wsGrid">
+          <!-- Dynamically populated project cards -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================== CINEMATIC LIGHTBOX =================== -->
+  <div id="wsLightbox" class="ws-lightbox">
+    <button id="wsLightboxClose" class="ws-lightbox-close">&times;</button>
+    <button id="wsLightboxPrev" class="ws-lightbox-btn prev" style="display:none;">&#10094;</button>
+    <button id="wsLightboxNext" class="ws-lightbox-btn next" style="display:none;">&#10095;</button>
+    <div class="ws-lightbox-content">
+      <div id="wsLightboxPlayerWrap" class="ws-lightbox-player-wrap"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
